@@ -70,8 +70,7 @@ identified points.
 eastern coordinate points. As before, use the simplified flat surface
 equation.
 * Once you have estimated the length of Pico Boulevard, you can proceed to
-report the number of arrest incidents per kilometer on Pico Boulevard in
-2018.
+report the number of arrest incidents per kilometer on Pico Boulevard in 2018.
 
 ### Question 7
 Some types of **arrest incidents in certain areas occur at a highly
