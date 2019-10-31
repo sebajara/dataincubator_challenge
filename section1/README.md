@@ -1,4 +1,4 @@
-# Data incubator challenge // section 1
+# Section 1
 
 ## Problem 
 

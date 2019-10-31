@@ -1,4 +1,4 @@
-# Data incubator challenge // project
+# Project
 
 Propose a project to do while at The Data Incubator. We want to know
 about your ability to think at a high level. Try to think of projects
