@@ -29,6 +29,9 @@ may end at the same grid intersection. All of these walks are counted.
 **Consider the case where d=4, n=10, and m=10. How many valid walks
 start from the corner (0, 0, 0, 0)?**
 
+``` MATLAB
+44569724
+```
 
 ### Question 2
 **Consider the case where d=4, n=10, and m=10. Consider the count of
@@ -36,7 +39,9 @@ valid walks associated with each possible starting position. What is the
 ratio of the highest count of valid walks to smallest count of valid
 walks?**
 
-
+``` MATLAB
+23.8120911855
+```
 
 ### Question 3
 **Consider the case where d=4, n=10, and m=10.
@@ -44,13 +49,17 @@ Consider the count of valid walks associated with each possible starting
 position. What is the ratio of the standard deviation of the number of
 valid walks to the mean of the number of valid walks?**
 
+``` MATLAB
 
+```
 
 ### Question 4
 **Now, let's consider the case where d=8, n=12, and m=12.
 How many valid walks start from one of the corners?**
 
+``` MATLAB
 
+```
 
 ### Question 5
 **Consider the case where d=8, n=12, and m=12.
@@ -58,7 +67,9 @@ Consider the count of valid walks associated with each possible starting
 position. What is the ratio of the highest count of valid walks to
 smallest count of valid walks?**
 
+``` MATLAB
 
+```
 
 ### Question 6
 **Consider the case where d=8, n=12, and m=12.
@@ -66,5 +77,8 @@ Consider the count of valid walks associated with each possible starting
 position. What is the ratio of the standard deviation of the number of
 valid walks to the mean of the number of valid walks?**
 
+``` MATLAB
+
+```
 
 

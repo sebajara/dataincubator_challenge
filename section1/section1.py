@@ -100,8 +100,8 @@ slice7.insert(slice7.shape[1], 'Absolute latitude zscore',
               zscore(slice7['Latitude'].values))
 slice7.insert(slice7.shape[1], 'Absolute longitude zscore',
               zscore(slice7['Longitude'].values))
-slice7_sub = slice7[(slice7['Absolute latitude zscore'] < 2)
-                    & (slice7['Absolute longitude zscore'] < 2)]
+slice7_sub = slice7[(slice7['Absolute latitude zscore'] <= 2)
+                    & (slice7['Absolute longitude zscore'] <= 2)]
 most_east = [slice7['Latitude'].values.mean(
 ), slice7['Longitude'].values.max()]
 most_west = [slice7['Latitude'].values.mean(
