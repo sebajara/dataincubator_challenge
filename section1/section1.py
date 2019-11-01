@@ -27,13 +27,14 @@ print ("A2: " + str(ans2[1]))
 # >> A2: 10929
 
 # ============== Question 3:
+df2018 = df[df['Arrest Date'] > '01-01-2018']
 dfslice3 = df2018[(df2018['Charge Group Description'] == 'Vehicle Theft')
                   | (df2018['Charge Group Description'] == 'Robbery')
                   | (df2018['Charge Group Description'] == 'Burglary')
                   | (df2018['Charge Group Description'] == 'Receive Stolen Property')]
 ans3 = dfslice3['Age'].quantile(0.95)
 print ("A3: " + str(ans3))
-# >> A3: 52
+# >> A3: 52.0000000000
 del dfslice3
 
 # ============== Question 4:
@@ -45,7 +46,7 @@ group4.insert(1, 'zscore', zscore(group4.values))
 ans4 = np.abs(group4['zscore'].values).max()
 # ID: 18.0, Drunkeness, Mean age: 43.798780
 print ("A4: " + str(ans4))
-# >> A4: 2.266
+# >> A4: 2.174336627804518
 del group4
 
 # ============== Question 5:
@@ -57,10 +58,11 @@ y = group_by_year.values
 slope, intercept, r_value, p_value, std_err = stats.linregress(x, y)
 ans5 = np.round(slope*2019 + intercept)
 print ("A5: " + str(ans5))
-# >> A5: 95230.0
+# >> A5: 95230
 del slice5
 
 # ============== Question 6:
+df2018 = df[df['Arrest Date'] > '01-01-2018']
 target = [34.050536, -118.247861]
 earth_radius = 6371  # in km
 # recover latitude, longitude as a float array
@@ -84,11 +86,11 @@ def my_location_dist(x1, x2, R):
     return d
 
 
-slice6_close = slice5[slice5.apply(lambda row: my_location_dist(
+slice6_close = slice6[slice6.apply(lambda row: my_location_dist(
     [row['Latitude'], row['Longitude']], target, earth_radius), axis=1) <= 2]
-ans5 = slice6_close.shape[0]
+ans6 = slice6_close.shape[0]
 print ("A6: " + str(ans6))
-# >> A6: 20115
+# >> A6: 11436
 del slice6
 del slice6_close
 
@@ -106,9 +108,9 @@ most_west = [slice7['Latitude'].values.mean(
 ), slice7['Longitude'].values.min()]
 dist = my_location_dist(most_east, most_west, earth_radius)
 # 36.6 Km as distance
-ans6 = slice7_sub.shape[0]/dist
+ans7 = slice7_sub.shape[0]/dist
 print ("A7: " + str(ans7))
-# >> A7: 29.401
+# >> A7: 16.650914646737895
 del slice7
 del slice7_sub
 
@@ -141,9 +143,9 @@ table8_rel = table8_rel.drop(labels='Total', axis=1)
 
 # final calculation
 all_values = np.sort(np.concatenate(table8_rel.values))
-ans7 = all_values[-5:].mean()
+ans8 = all_values[-5:].mean()
 print ("A8: " + str(ans8))
-# >> A8: 3.515
+# >> A8: 3.515076379865202
 del slice8
 del table8_counts
 del table8_freq

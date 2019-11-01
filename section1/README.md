@@ -36,7 +36,7 @@ date range to consider.**
 Robbery, Burglary, Receive Stolen Property.
 
 ``` python
-52
+52.0000000000
 ```
 
 
@@ -54,7 +54,7 @@ minors.
 known.
 
 ``` python
-2.266
+2.174336627804518
 ```
 
 ### Question 5
@@ -66,7 +66,7 @@ trend line (linear estimation) for the data from 2010 and 2018
 * Note, the data set includes arrests for misdemeanor, felonies, etc.
 
 ``` python
-95230.0
+95230
 ```
 
 ### Question 6
@@ -81,7 +81,7 @@ is listed as (0, 0). These records should not factor in your
 calculation.
 
 ``` python
-20115
+11436
 ```
 
 ### Question 7
@@ -102,7 +102,7 @@ equation.
 report the number of arrest incidents per kilometer on Pico Boulevard in 2018.
 
 ``` python
-29.401
+16.650914646737895
 ```
 
 ### Question 8
@@ -127,5 +127,5 @@ should not be considered in your analysis.
 your analysis.
 
 ``` python
-3.515
+3.515076379865202
 ```
