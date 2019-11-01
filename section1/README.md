@@ -17,16 +17,27 @@ date range to consider.**
 ### Question 1
 **How many bookings of arrestees were made in 2018?**
 
+``` python
+104040
+```
+
 
 ### Question 2
 **How many bookings of arrestees were made in the area with the most arrests in 2018?**
 
+``` python
+10929
+```
 
 ### Question 3
 **What is the 95% quantile of the age of the arrestee in 2018?**
 
 * Only consider the following charge groups for your analysis: Vehicle Theft,
 Robbery, Burglary, Receive Stolen Property.
+
+``` python
+52
+```
 
 
 ### Question 4
@@ -42,8 +53,23 @@ minors.
 * Exclude any arrests where the charge group description is not
 known.
 
+``` python
+2.266
+```
 
 ### Question 5
+Felony arrest incidents have been dropping over the years. **Using a
+trend line (linear estimation) for the data from 2010 and 2018
+(inclusive), what is the projected number of felony arrests in 2019?**
+
+* Round to the nearest integer.
+* Note, the data set includes arrests for misdemeanor, felonies, etc.
+
+``` python
+95230.0
+```
+
+### Question 6
 **How many arrest incidents occurred within 2 km from the Bradbury
 Building in 2018?**
 
@@ -54,8 +80,11 @@ km. Note, some arrest records are missing location data and the location
 is listed as (0, 0). These records should not factor in your
 calculation.
 
+``` python
+20115
+```
 
-### Question 6
+### Question 7
 **How many arrest incidents were made per kilometer on Pico Boulevard
 during 2018?**
 
@@ -72,7 +101,11 @@ equation.
 * Once you have estimated the length of Pico Boulevard, you can proceed to
 report the number of arrest incidents per kilometer on Pico Boulevard in 2018.
 
-### Question 7
+``` python
+29.401
+```
+
+### Question 8
 Some types of **arrest incidents in certain areas occur at a highly
 disproportionate rate compared to their frequency city-wide**. For
 example, let's say that the rate of larceny arrests (charge group code
@@ -93,14 +126,6 @@ should not be considered in your analysis.
 * Arrest incidents for charge group code 99 should not be considered in
 your analysis.
 
-### Question 8
-Felony arrest incidents have been dropping over the years. **Using a
-trend line (linear estimation) for the data from 2010 and 2018
-(inclusive), what is the projected number of felony arrests in 2019?**
-
-* Round to the nearest integer.
-* Note, the data set includes arrests for misdemeanor, felonies, etc.
-
-
-
-
+``` python
+3.515
+```
