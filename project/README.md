@@ -31,17 +31,16 @@ sector, and estimated a z-score based on each sector's
 distribution. 
 
 The scatter plot in [Figure
-1](https://github.com/sebajara/dataincubator_challenge/tree/master/project/FIG1.png),
+1](https://github.com/sebajara/dataincubator_challenge/tree/master/project/FIG1.png)
 puts in evidence that while some companies grow very fast in absolute
 follower-counts compared to the rest, they do not necessarily grow
 very fast relative to their size (values tend to the center in the
-fractional follower-counts change-rate axis). However few companies
-scape from this trend. Circled companies in [figure
-1]((https://github.com/sebajara/dataincubator_challenge/tree/master/project/FIG1.png))
+fractional follower-counts change-rate axis). However, a few companies
+scape from this trend. Circled companies in [figure1]((https://github.com/sebajara/dataincubator_challenge/tree/master/project/FIG1.png))
 correspond to cases where the z-score is bigger than 0.5 in both
-axis. In particular, those companies are: Aon (Financial Services), Eni
-(Oil & Energy), Western Digital (Information Technology and Services),
-GGP Inc. (Real Estate), YouTube (Internet), and Telefonica
+axis. In particular, those companies are: [Aon](https://www.linkedin.com/company/aon) (Financial Services), [Eni](https://www.linkedin.com/company/eni)
+(Oil & Energy), [Western Digital](https://www.linkedin.com/company/western-digital) (Information Technology and Services),
+[GGP Inc.](https://www.linkedin.com/company/ggp-inc.) (Real Estate), [YouTube](https://www.linkedin.com/company/youtube) (Internet), and [Telefonica](https://www.linkedin.com/company/telef%C3%B3nica)
 (Telecommunications).
 
 The aforementioned results suggest that follower-counts grow
