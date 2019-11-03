@@ -21,6 +21,7 @@ def my_blob_plot(ax, data, pos, bn, bM, nbins, scale_blob):
                           linewidth=0.0, facecolor='#071FFC', alpha=1)
     updata = data[data > M]
     h2 = plt.scatter(pos[0]*np.ones((len(updata), 1)), updata, c='#0FFC07', alpha=0.7)
+    h2 = plt.scatter(pos[0]*np.ones((len(updata), 1)), updata, facecolors='none', edgecolors='black',linestyle='--', alpha=0.7)
     #dwdata = data[data < m]
     #h3 = plt.scatter(pos[0]*np.ones((len(dwdata), 1)), dwdata, c='#FF0426', alpha=0.7)
  
@@ -32,7 +33,6 @@ df = pd.read_csv('project/data/temp_datalab_records_linkedin_company.csv',
                  usecols=[0, 1, 2, 3, 4, 6])
 df['as_of_date'] = pd.to_datetime(df['as_of_date'])
 df['industry'] = df['industry'].fillna('Unknown')
-#df['real_followers_count'] = pd.Series(df['followers_count'].values - df['employees_on_platform'].values)
 
 # Group data by company_name 
 group = df.groupby('company_name')
@@ -52,8 +52,6 @@ dfcp['slope1'] = 0
 dfcp['r_value1'] = 0
 dfcp['slope2'] = 0
 dfcp['r_value2'] = 0
-dfcp['slope3'] = 0
-dfcp['r_value3'] = 0
 # Populate dfcp dataframe
 for c in range(0, len(company_names)):
     slice = group.get_group(company_names[c])
@@ -77,60 +75,97 @@ for c in range(0, len(company_names)):
     dfcp.loc[c, 'last_employees_on_platform'] = slice['employees_on_platform'].loc[last_idx]
     # number of followers_count in last date
     dfcp.loc[c, 'last_followers_count'] = slice['followers_count'].loc[last_idx]
-    # linear fit datetime.toordinal v/s followers_count
-    slope, intercept, r_value, p_value, std_err = stats.linregress(
-        slice['as_of_date'].map(dt.datetime.toordinal).values/30,
-        slice['followers_count'].values)
-    dfcp.loc[c, 'slope1'] = slope
-    dfcp.loc[c, 'r_value1'] = r_value
-    # linear fit of datetime.toordinal v/s relative followers_count
-    slope, intercept, r_value, p_value, std_err = stats.linregress(
-        slice['as_of_date'].map(dt.datetime.toordinal).values/30,
-        slice['followers_count'].values/slice['followers_count'].iloc[0])
-    dfcp.loc[c, 'slope2'] = slope
-    dfcp.loc[c, 'r_value2'] = r_value
-    # linear fit of employees_on_platform v/s followers_count
-    slope, intercept, r_value, p_value, std_err = stats.linregress(
-        slice['employees_on_platform'].values,
-        slice['followers_count'].values)
-    dfcp.loc[c, 'slope3'] = slope
-    dfcp.loc[c, 'r_value3'] = r_value
+    if(slice['as_of_date'].count()>3):
+        # linear fit datetime.toordinal v/s followers_count
+        tx = slice['as_of_date'].map(dt.datetime.toordinal).values/30
+        fy = slice['followers_count'].values
+        slope, intercept, r_value, p_value, std_err = stats.linregress(tx,fy)
+        dfcp.loc[c, 'slope1'] = slope
+        dfcp.loc[c, 'r_value1'] = r_value
+        # linear fit of datetime.toordinal v/s relative followers_count
+        fy2 = fy[fy>0]
+        tx2 = tx[fy>0]
+        if(len(tx2)>3):
+            ry = np.divide(fy2[1:],fy2[:-1])
+            slope, intercept, r_value, p_value, std_err = stats.linregress(tx2[1:],ry)
+            dfcp.loc[c, 'slope2'] = slope
+            dfcp.loc[c, 'r_value2'] = r_value
+        else:
+            dfcp.loc[c, 'slope2'] = np.nan
+            dfcp.loc[c, 'r_value2'] = np.nan
+    else:
+        dfcp.loc[c, 'slope1'] = np.nan
+        dfcp.loc[c, 'r_value1'] = np.nan
+        dfcp.loc[c, 'slope2'] = np.nan
+        dfcp.loc[c, 'r_value2'] = np.nan
+del df
 
 # Group dfcp data by industry
 group = dfcp.groupby('industryID')
 # Select the top industries by number of companies
+
 nindustries = 5
 bigIndustries = dfcp.groupby('industryID')['industryID'].count().nlargest(nindustries).index.values
-
+labels = industry_names[bigIndustries]
+labels[4] = 'IT & Services'
 # Plot distributions by followers-rate
 fig = plt.figure()
 ax = fig.add_subplot(111)
 for i in range(0, len(bigIndustries)):
     vals = 100*group.get_group(bigIndustries[i])['slope1'].dropna().values
     my_blob_plot(ax, vals, [i+1],0, 2e06, 50, 0.7)
-labels = industry_names[bigIndustries]
-labels[4] = 'IT & Services'
-plt.xticks(list(range(1, len(bigIndustries)+1)), labels, rotation=30)
-plt.ylabel('Followers-rate [#/Month]')
-p1 = mlines.Line2D([], [], marker='o', color='#0FFC07', alpha=0.7, markersize=10, linewidth='0', label='Top 1%')
-p2 = mpatches.Patch(color='#071FFC', label='Blob histogram', alpha=1)
-#p3 = mlines.Line2D([], [], marker='o', color='#FF0426', alpha=0.7, markersize=10, linewidth='0', label='Bottom 1%')
+    plt.xticks(list(range(1, len(bigIndustries)+1)), labels, rotation=30)
+    plt.ylabel('Followers-rate [#/Month]')
+    p1 = mlines.Line2D([], [], marker='o', color='#0FFC07', alpha=0.7, markersize=10, linewidth='0', label='Industry top 1%')
+    p2 = mpatches.Patch(color='#071FFC', label='Industry histogram', alpha=1)
+    #p3 = mlines.Line2D([], [], marker='o', color='#FF0426', alpha=0.7, markersize=10, linewidth='0', label='Bottom 1%')
 plt.legend(handles=[p1,p2])
-plt.title('Industries\' follower-rates are widely distributed')
+plt.title('Companies follower-rates in Linkedin are widely distributed')
 plt.tight_layout()
 #plt.show()
 fig.savefig('FIG_blob-plot_FollowersRate_TOP.png',dpi=600)
 
 # Compare z-score of relative-followers-rate and followers-rate
+nindustries = 13
+bigIndustries = dfcp.groupby('industryID')['industryID'].count().nlargest(nindustries).index.values
+labels = industry_names[bigIndustries]
+labels[4] = 'IT & Services'
+cut = 0.5
 fig = plt.figure()
 ax  = fig.add_subplot(111)
+handles = list()
 for i in range(0, len(bigIndustries)):
-    data = group.get_group(bigIndustries[i]).loc[:,['slope1','slope2','industryID']].dropna()
-    plt.scatter(stats.zscore(data['slope2'].values),stats.zscore(data['slope1'].values),alpha=0.5)
-plt.xlabel('Followers-rate z-score')
-plt.ylabel('Fractional Followers-rate z-score')
-#plt.
+    data = group.get_group(bigIndustries[i]).loc[:,['slope1','slope2']].dropna()
+    y = stats.zscore(data['slope1'].values)
+    x = stats.zscore(data['slope2'].values)
+    if(((x>cut)&(y>cut)).sum()>0):
+        plt.scatter(x[(x>cut)&(y>cut)], y[(x>cut)&(y>cut)],
+                    facecolors='none', s=60,edgecolors='black',linestyle='--')
+    h = plt.scatter(x,y,alpha=0.5)
+    handles.append(h)
+plt.xlabel('Fractional-followers-rate z-score')
+plt.xlim(-2,2)
+plt.ylabel('Followers-rate z-score')
+plt.legend(handles,labels,loc = 'upper left')
 plt.tight_layout()
+plt.title('6 companies stand out in Linkedin by their followers-growth')
 #plt.show()
-fig.savefig('FIG_scatter_RatesZscores.png',dpi=600)
+fig.savefig('FIG_scatter_FractionalRatesZscores.png',dpi=600)
+
+nindustries = 141
+bigIndustries = dfcp.groupby('industryID')['industryID'].count().nlargest(nindustries).index.values
+labels = industry_names[bigIndustries]
+labels[4] = 'IT & Services'
+topdf = pd.DataFrame()
+for i in range(0, len(bigIndustries)):
+    data = group.get_group(bigIndustries[i]).dropna()
+    if(data.shape[0]>50):
+        data.insert(data.shape[1],'z-score1',stats.zscore(data['slope1'].values))
+        data.insert(data.shape[1],'z-score2',stats.zscore(data['slope2'].values))
+        data['industry_total'] = data.shape[0]
+        topdf = topdf.append(data)
+topdf.to_csv("summary.csv",sep='\t')
+
+good = topdf[(topdf['z-score1']>cut) & (topdf['z-score2']>cut)]
+good.to_csv("topgrowing.csv",sep='\t')
 
