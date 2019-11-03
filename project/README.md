@@ -23,12 +23,12 @@ post](http://blog.thedataincubator.com/2017/01/how-employers-judge-data-science-
 
 ## Project description
 
-Inspection of showed that the company's follower-counts approximately
-a linear relation with time (data not shown). For each company I
-estimated the follower-counts change-rate and fractional "follower
-counts" change-rate using a linear model, separated them by industry
-sector, and estimated a z-score based on each sector's
-distribution. 
+Inspection of showed that the company's follower-counts approximately a
+linear relation with time (R_values have 0.9 average and 0.3 standard
+deviation, data not shown). For each company I estimated the
+follower-counts change-rate and fractional "follower counts" change-rate
+using a linear model, separated them by industry sector, and estimated a
+z-score based on each sector's distribution.
 
 The scatter plot in [Figure
 1](https://github.com/sebajara/dataincubator_challenge/tree/master/project/FIG1.png)
@@ -42,10 +42,10 @@ correspond to cases where the z-score is bigger than 0.5 in both
 axis. In particular, those companies are: [Aon](https://www.linkedin.com/company/aon) (Financial Services), [Eni](https://www.linkedin.com/company/eni)
 (Oil & Energy), [Western Digital](https://www.linkedin.com/company/western-digital) (Information Technology and Services),
 [GGP Inc.](https://www.linkedin.com/company/ggp-inc.) (Real Estate), [YouTube](https://www.linkedin.com/company/youtube) (Internet), and [Telefonica](https://www.linkedin.com/company/telef%C3%B3nica)
-(Telecommunications).
+(Telecommunications). Would be interesting to study in more detail the
+context (e.g. communication strategies, market growth) that allow these companies to
+grow faster than the rest.
 
-The aforementioned results suggest that follower-counts grow
-approximately proportional to the follower-counts size
 
 ### Figures
 
@@ -55,7 +55,7 @@ approximately proportional to the follower-counts size
 
 **Figure 2:**
 
-<p align="center"><img src="FIG1.png" width="600"></p>
+<p align="center"><img src="FIG2.png" width="600"></p>
 
 ### Data source
 
