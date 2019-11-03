@@ -51,10 +51,11 @@ approximately proportional to the follower-counts size
 
 **Figure 1:**
 
-<img src="FIG1.png" width="500">
+<p align="center"><img src="FIG1.png" width="600"></p>
 
 **Figure 2:**
-![Blob plot](/FIG2.png)
+
+<p align="center"><img src="FIG1.png" width="600"></p>
 
 ### Data source
 
