@@ -65,13 +65,6 @@ approximately proportional to the follower-counts size
 
 ## Personal notes
 
-I am not quite happy with the analysis I have done here. I must
-recognise I underestimated this challenge and did not prepared enough in
-advance. Knowing in principle what-to-do is very different from having
-the experience of making and implementing those decisions several
-times. It is unlikely to come up with something good while learning how
-to do things in parallel. 
-
 A few comments specifically about the Linkedin data:
 * Follower-rates per industry appear not to follow a Gaussian
   distribution, so the z-score is not the correct metric. Perhaps some
