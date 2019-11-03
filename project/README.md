@@ -36,7 +36,8 @@ puts in evidence that while some companies grow very fast in absolute
 follower-counts compared to the rest, they do not necessarily grow
 very fast relative to their size (values tend to the center in the
 fractional follower-counts change-rate axis). However, a few companies
-scape from this trend. Circled companies in [figure1]((https://github.com/sebajara/dataincubator_challenge/tree/master/project/FIG1.png))
+scape from this trend. Circled companies in [figure
+1](https://github.com/sebajara/dataincubator_challenge/tree/master/project/FIG1.png)
 correspond to cases where the z-score is bigger than 0.5 in both
 axis. In particular, those companies are: [Aon](https://www.linkedin.com/company/aon) (Financial Services), [Eni](https://www.linkedin.com/company/eni)
 (Oil & Energy), [Western Digital](https://www.linkedin.com/company/western-digital) (Information Technology and Services),
@@ -49,7 +50,7 @@ approximately proportional to the follower-counts size
 ### Figures
 
 **Figure 1:**
-![Scatter Follower-counts change-rate z-score v/s Fractional-follower-counts change-rate z-score](/FIG1.png)
+![](FIG1.png)
 
 **Figure 2:**
 ![Blob plot](/FIG2.png)
