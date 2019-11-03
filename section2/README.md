@@ -81,4 +81,14 @@ valid walks to the mean of the number of valid walks?**
 
 ```
 
+## Personal notes
 
+I am curious if there was a trully cleaver way to solve this problem,
+either analytically or with some combination between combinatorics and
+programming. Using the symmetry of the space to reduce the amount of
+initial position one needs to compute the counts was a good idea
+(hopefully I implemented it correctly). However still is necessary to
+count one by one the number of paths for each of those initial
+positions. I tried computing that for one of the corners with d=8 and
+was still running after 10-12 hrs, so clearly there must be another
+cleaver way to look at the problem.
