@@ -23,7 +23,21 @@ post](http://blog.thedataincubator.com/2017/01/how-employers-judge-data-science-
 
 ## Project description
 
-Inspection of showed that the company's follower-counts approximately a
+Linkedin is the biggest social network for people to promote themself
+professionally, and for companies to recruit them. The most direct way
+for a company to position themselves in the network is via "followers",
+that track their developments and announcements.
+
+In this project I will analyse the followers-count of individual
+companies in order to develop and mathematical model that describes how
+followers-count is expected to change over time. I will use this model
+to identify companies that grow faster than expected, hoping to learn
+how companies can accelerate their positioning within LinkedIn.
+
+Preliminary, I have analysed a
+[database](https://s3-us-west-2.amazonaws.com/documents.thinknum.com/dataset_dump/flikerqvnk/temp_datalab_records_linkedin_company.zip)
+tracking the followers-count of about 5000 companies, spanning from
+September 2015 to July 2018. Inspection of showed that the company's follower-counts approximate a
 linear relation with time (R_values have 0.9 average and 0.3 standard
 deviation, data not shown). For each company I estimated the
 follower-counts change-rate and fractional "follower counts" change-rate
@@ -32,20 +46,44 @@ z-score based on each sector's distribution.
 
 The scatter plot in [Figure
 1](https://github.com/sebajara/dataincubator_challenge/tree/master/project/FIG1.png)
-puts in evidence that while some companies grow very fast in absolute
-follower-counts compared to the rest, they do not necessarily grow
-very fast relative to their size (values tend to the center in the
-fractional follower-counts change-rate axis). However, a few companies
-scape from this trend. Circled companies in [figure
+shows that while some companies grow very fast in absolute
+follower-counts compared to the rest, they do not necessarily grow very
+fast relative to their size (values tend to the center in the fractional
+follower-counts change-rate axis). However, a few companies scape from
+this trend. Circled companies in [figure
 1](https://github.com/sebajara/dataincubator_challenge/tree/master/project/FIG1.png)
 correspond to cases where the z-score is bigger than 0.5 in both
-axis. In particular, those companies are: [Aon](https://www.linkedin.com/company/aon) (Financial Services), [Eni](https://www.linkedin.com/company/eni)
-(Oil & Energy), [Western Digital](https://www.linkedin.com/company/western-digital) (Information Technology and Services),
-[GGP Inc.](https://www.linkedin.com/company/ggp-inc.) (Real Estate), [YouTube](https://www.linkedin.com/company/youtube) (Internet), and [Telefonica](https://www.linkedin.com/company/telef%C3%B3nica)
-(Telecommunications). Would be interesting to study in more detail the
-context (e.g. communication strategies, market growth) that allow these companies to
-grow faster than the rest.
+axis. In particular, those companies are:
+[Aon](https://www.linkedin.com/company/aon) (Financial Services),
+[Eni](https://www.linkedin.com/company/eni) (Oil & Energy), [Western
+Digital](https://www.linkedin.com/company/western-digital) (Information
+Technology and Services), [GGP
+Inc.](https://www.linkedin.com/company/ggp-inc.) (Real Estate),
+[YouTube](https://www.linkedin.com/company/youtube) (Internet), and
+[Telefonica](https://www.linkedin.com/company/telef%C3%B3nica)
+(Telecommunications).
 
+While the followers appear to follow a linear growth, surprisingly we
+find that the followers change-rate is well correlated with the
+followers size of each company, in this case represented by their most
+recent value (see scatter plot in [figure
+2](https://github.com/sebajara/dataincubator_challenge/tree/master/project/FIG2.png).
+In the ideal case the number of potential new followers were unlimited,
+this correlation should result in an exponential growth, not
+linear. This discrepancy suggests that the growth of company followers is
+limited, probably as a balance between competition among companies of
+the same industry, reducing size of old users available to add as
+followers, and the addition of new users to the platform.
+
+Future work will involve adquiring data for the growth of numbers of
+users through the network, and attributes that may help us identify
+their potential industry interests. In parallel, I will evaluate
+mathematically different scenarios of competition bewteen companies in
+order to identify a model that accurately describes how followers are
+expected to grow over-time. With this, I will identify companies grow in
+followers faster than the model, and study the conditions
+(e.g. communication strategies, market growth) that allow them to grow
+faster than the rest.
 
 ### Figures
 
@@ -86,7 +124,9 @@ A few comments specifically about the Linkedin data:
 * Use cusip and isin in order to map company to economics databases.
 * Key question is how fast the size of linkedin users and user active
   usage, and how they split for different industry categories.
-  
+* Evaluate how far is the data from an exponential growth, assuming it
+  may look linear because of the "short" time-scale.
+
 For practising in the future:
 * From the application: As you begin to formulate your capstone project,
   we encourage you to start exploring our blog posts on [data sources](https://blog.thedataincubator.com/tag/data-sources/) and
