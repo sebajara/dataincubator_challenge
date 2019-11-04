@@ -78,12 +78,12 @@ followers, and the addition of new users to the platform.
 Future work will involve adjuring data for the growth of numbers of
 users through the network, and attributes that may help us identify
 their potential industry interests. In parallel, I will evaluate
-mathematically different scenarios of competition between companies in
-order to identify a model that accurately describes how followers are
-expected to grow over-time. With this, I will identify companies grow in
-followers faster than the model, and study the conditions
-(e.g. communication strategies, market growth) that allow them to grow
-faster than the rest.
+analytically and with simulations different scenarios of competition
+between companies in order to identify a model that accurately describes
+how followers are expected to grow over-time. With this, I will identify
+companies grow in followers faster than the model, and study the
+conditions (e.g. communication strategies, market growth) that allow
+them to grow faster than the rest.
 
 ### Figures
 

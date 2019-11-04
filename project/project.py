@@ -9,7 +9,7 @@ import matplotlib.patches as mpatches
 import matplotlib.lines as mlines
 
 # Read and preprocess csv file
-df = pd.read_csv('project/data/temp_datalab_records_linkedin_company.csv',
+df = pd.read_csv('data/temp_datalab_records_linkedin_company.csv',
                  dtype={'dataset_id': 'int64', 'followers_count': 'int64',
                         'employees_on_platform': 'int64'},
                  usecols=[0, 1, 2, 3, 4, 6])

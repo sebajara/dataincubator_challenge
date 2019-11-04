@@ -13,21 +13,20 @@ function [] = section2()
     
     tic
     % ================== Question 1:
-    %count1 = count_paths_4D_10STEPS(10,[0,0,0,0]);
-    %display(['A1: ',num2str(count1)]);
+    count1 = count_paths_4D_10STEPS(10,[0,0,0,0]);
+    display(['A1: ',num2str(count1)]);
     toc
     % A1: 44569724
     
     % ================== Question 2:
     % max count must be in the middle and the min is from one corner
-    %count2 = count_paths_4D_10STEPS(10,[4,4,4,4]);
-    %display(['A2: ',num2str(count2/count1),' Max: ',num2str(count2)]);
+    count2 = count_paths_4D_10STEPS(10,[4,4,4,4]);
+    display(['A2: ',num2str(count2/count1),' Max: ',num2str(count2)]);
     toc
     % A2: 23.8121 Max: 1061298332
     
     % ================== Question 3:
     if(~isfile('tempQ3.mat'))
-        a = 1
         dists = zeros(10,10,10,10);
         for d1 = 1:10
             for d2 = 1:10
@@ -40,6 +39,8 @@ function [] = section2()
             end
         end
         targets      = unique(dists(:));
+        display(['Q3, number of unique positions: ',num2str(length(targets))]);
+        % Q3, number of unique positions: 74
         reducecounts = zeros(size(targets));
         counts3      = zeros(10,10,10,10);
         for d1 = 1:10
@@ -59,13 +60,17 @@ function [] = section2()
             end
         end
         save('tempQ3.mat', 'counts3');
-        toc % it took
+        toc
+        % it took 5.8630 hrs
     else
         load('tempQ3.mat');
     end
     vals = counts3(:);
+    % mean 3.4968e+08
+    % std 2.2492e+08
     ans3 = std(vals)/mean(vals);
     display(['A3: ',num2str(0)]);
+    % A3: 0.6432
     toc
     
     % ================== Question 4:

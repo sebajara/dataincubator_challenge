@@ -50,7 +50,7 @@ position. What is the ratio of the standard deviation of the number of
 valid walks to the mean of the number of valid walks?**
 
 ``` MATLAB
-
+0.64321665522
 ```
 
 ### Question 4
