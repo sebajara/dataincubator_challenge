@@ -25,19 +25,19 @@ post](http://blog.thedataincubator.com/2017/01/how-employers-judge-data-science-
 
 Linkedin is the biggest social network for people to promote themself
 professionally, and for companies to recruit them. The most direct way
-for a company to position themselves in the network is via "followers",
-that track their developments and announcements.
+for a company to position themselves in the network is via "follower"
+users that track their developments and announcements.
 
 In this project I will analyse the followers-count of individual
-companies in order to develop and mathematical model that describes how
-followers-count is expected to change over time. I will use this model
+companies, in order to develop and mathematical model that describes how
+followers-count are expected to change over time. I will use this model
 to identify companies that grow faster than expected, hoping to learn
 how companies can accelerate their positioning within LinkedIn.
 
 Preliminary, I have analysed a
 [database](https://s3-us-west-2.amazonaws.com/documents.thinknum.com/dataset_dump/flikerqvnk/temp_datalab_records_linkedin_company.zip)
 tracking the followers-count of about 5000 companies, spanning from
-September 2015 to July 2018. Inspection of showed that the company's follower-counts approximate a
+September 2015 to July 2018. Inspection showed that the company's follower-counts approximate a
 linear relation with time (R_values have 0.9 average and 0.3 standard
 deviation, data not shown). For each company I estimated the
 follower-counts change-rate and fractional "follower counts" change-rate
@@ -75,10 +75,10 @@ limited, probably as a balance between competition among companies of
 the same industry, reducing size of old users available to add as
 followers, and the addition of new users to the platform.
 
-Future work will involve adquiring data for the growth of numbers of
+Future work will involve adjuring data for the growth of numbers of
 users through the network, and attributes that may help us identify
 their potential industry interests. In parallel, I will evaluate
-mathematically different scenarios of competition bewteen companies in
+mathematically different scenarios of competition between companies in
 order to identify a model that accurately describes how followers are
 expected to grow over-time. With this, I will identify companies grow in
 followers faster than the model, and study the conditions
