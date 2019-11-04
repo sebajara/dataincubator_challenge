@@ -73,7 +73,9 @@ this correlation should result in an exponential growth, not
 linear. This discrepancy suggests that the growth of company followers is
 limited, probably as a balance between competition among companies of
 the same industry, reducing size of old users available to add as
-followers, and the addition of new users to the platform.
+followers, and the addition of new users to the platform. However, it
+could also be a result of over-fitting, and future work will be aimed at
+comparing the goodness of fit bewteen exponential and linear models.
 
 Future work will involve adjuring data for the growth of numbers of
 users through the network, and attributes that may help us identify
