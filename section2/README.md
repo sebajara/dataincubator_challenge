@@ -29,7 +29,7 @@ may end at the same grid intersection. All of these walks are counted.
 **Consider the case where d=4, n=10, and m=10. How many valid walks
 start from the corner (0, 0, 0, 0)?**
 
-``` MATLAB
+``` python
 44569724
 ```
 
@@ -39,8 +39,8 @@ valid walks associated with each possible starting position. What is the
 ratio of the highest count of valid walks to smallest count of valid
 walks?**
 
-``` MATLAB
-23.8120911855
+``` python
+23.81209118548726
 ```
 
 ### Question 3
@@ -49,15 +49,15 @@ Consider the count of valid walks associated with each possible starting
 position. What is the ratio of the standard deviation of the number of
 valid walks to the mean of the number of valid walks?**
 
-``` MATLAB
-0.64321665522
+``` python
+0.5106573744484553
 ```
 
 ### Question 4
 **Now, let's consider the case where d=8, n=12, and m=12.
 How many valid walks start from one of the corners?**
 
-``` MATLAB
+``` python
 
 ```
 
@@ -67,7 +67,7 @@ Consider the count of valid walks associated with each possible starting
 position. What is the ratio of the highest count of valid walks to
 smallest count of valid walks?**
 
-``` MATLAB
+``` python
 
 ```
 
@@ -77,7 +77,7 @@ Consider the count of valid walks associated with each possible starting
 position. What is the ratio of the standard deviation of the number of
 valid walks to the mean of the number of valid walks?**
 
-``` MATLAB
+``` python
 
 ```
 
