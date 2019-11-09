@@ -7,13 +7,13 @@
 #    with respect to path counting (what I call equivalent-class).
 # 2) It is possible to speed up counting paths by recursively
 #    multiplying the frequency of equivalent positions found on each
-#    step by the number of paths spawning from that step.
+#    step by the number of paths spawning from each position.
 # 3) It is possible to speed up computations by saving in memory the
 #    result of recursive steps and retrieving the answer when those
 #    points are encountered later (memoization).
 # 4) To know the distribution over the whole grid is sufficient to
-#    compute only representatives of each equivalent-class and know
-#    their frequency over the grid.
+#    compute only the number of paths for one representative of each
+#    equivalent-class, and the number of elements of each class.
 
 from collections import Counter
 from itertools import combinations_with_replacement

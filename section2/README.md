@@ -93,10 +93,10 @@ with respect to path counting (what I call equivalent-class in the
 code).
 2. It is possible to speed up counting paths by recursively multiplying
    the frequency of equivalent positions found on each step by the
-   number of paths spawning from that step.
+   number of paths spawning from each position.
 3. It is possible to speed up computation by saving in memory the
    result of recursive steps and retrieving the answer when those points
    are encountered later (memoization).
 4. To know the distribution over the whole grid is sufficient to compute
-   only representatives of each equivalent-class and know their
-   frequency over the grid.
+   only the number of paths for one representative of each
+   equivalent-class, and the number of elements of each class.
