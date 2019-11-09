@@ -50,7 +50,7 @@ position. What is the ratio of the standard deviation of the number of
 valid walks to the mean of the number of valid walks?**
 
 ``` python
-0.5106573744484553
+0.5106573744484552
 ```
 
 ### Question 4
@@ -58,7 +58,7 @@ valid walks to the mean of the number of valid walks?**
 How many valid walks start from one of the corners?**
 
 ``` python
-
+2479092118264
 ```
 
 ### Question 5
@@ -68,7 +68,7 @@ position. What is the ratio of the highest count of valid walks to
 smallest count of valid walks?**
 
 ``` python
-
+113.51216384122472
 ```
 
 ### Question 6
@@ -78,17 +78,25 @@ position. What is the ratio of the standard deviation of the number of
 valid walks to the mean of the number of valid walks?**
 
 ``` python
-
+0.5153659308568227
 ```
 
 ## Personal notes
 
-I am curious if there was a trully cleaver way to solve this problem,
-either analytically or with some combination between combinatorics and
-programming. Using the symmetry of the space to reduce the amount of
-initial position one needs to compute the counts was a good idea
-(hopefully I implemented it correctly). However still is necessary to
-count one by one the number of paths for each of those initial
-positions. I tried computing that for one of the corners with d=8 and
-was still running after 10-12 hrs, so clearly there must be another
-cleaver way to look at the problem.
+This version was built after the deadline for the challenge, and I ought
+to Ricardo Honorato-Zimmer for figuring out the recursion and
+memoization trick.
+
+In general, the approach followed here relies on 4 realisations:
+1. All positions with the same distance to grid centre are equivalent
+with respect to path counting (what I call equivalent-class in the
+code).
+2. It is possible to speed up counting paths by recursively multiplying
+   the frequency of equivalent positions found on each step by the
+   number of paths spawning from that step.
+3. It is possible to speed up computation by saving in memory the
+   result of recursive steps and retrieving the answer when those points
+   are encountered later (memoization).
+4. To know the distribution over the whole grid is sufficient to compute
+   only representatives of each equivalent-class and know their
+   frequency over the grid.
